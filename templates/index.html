@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SalaryAI — Intelligent Compensation Prediction</title>
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Background canvas decoration -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-mark">⬡</span>
+        <span class="logo-text">SalaryAI</span>
+      </div>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#predict">Predict Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      ML-Powered · Real-Time · Accurate
+    </div>
+    <h1 class="hero-headline">
+      <span class="headline-thin">Predict Your</span><br/>
+      <span class="headline-bold">Market Value</span><br/>
+      <em class="headline-italic">with AI Precision</em>
+    </h1>
+    <p class="hero-sub">
+      Our gradient-boosted model trained on 500K+ compensation data points 
+      delivers salary forecasts calibrated to your exact profile — industry, 
+      role, skills, and geography.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#predict" class="btn-primary">Predict My Salary</a>
+      <a href="#how-it-works" class="btn-ghost">Learn How →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">500K<span class="stat-plus">+</span></span>
+        <span class="stat-label">Data Points</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">94<span class="stat-plus">%</span></span>
+        <span class="stat-label">Accuracy Rate</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">120<span class="stat-plus">+</span></span>
+        <span class="stat-label">Job Roles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─── -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three steps from profile to prediction.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-icon">⬡</div>
+        <h3 class="step-title">Enter Your Profile</h3>
+        <p class="step-desc">Fill in your job role, years of experience, education, skills, and location details.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-icon">◈</div>
+        <h3 class="step-title">Model Processes</h3>
+        <p class="step-desc">Our ML engine analyzes 11 feature dimensions against real compensation benchmarks.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-icon">◉</div>
+        <h3 class="step-title">Receive Prediction</h3>
+        <p class="step-desc">Get an annual salary estimate — calibrated, formatted, and instantly displayed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PREDICTION FORM ─── -->
+  <section class="predict-section" id="predict">
+    <div class="section-label">Prediction Engine</div>
+    <h2 class="section-title">Build Your Profile</h2>
+    <p class="section-sub">All fields contribute to the model's output. Completeness improves accuracy.</p>
+
+    <div class="predict-layout">
+      <!-- FORM CARD -->
+      <div class="form-card glass-card">
+        <div class="form-header">
+          <span class="form-header-icon">◈</span>
+          <span class="form-header-text">Candidate Profile</span>
+        </div>
+
+        <form id="salaryForm" novalidate>
+          <div class="form-grid">
+
+            <!-- Job Title -->
+            <div class="field-group span-2">
+              <label for="job_title" class="field-label">Job Title <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="text" id="job_title" name="job_title"
+                  placeholder="e.g. Data Scientist, ML Engineer, Product Manager"
+                  autocomplete="off" />
+                <span class="input-line"></span>
+              </div>
+            </div>
+
+            <!-- Experience Years -->
+            <div class="field-group">
+              <label for="experience_years" class="field-label">Experience (Years) <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="number" id="experience_years" name="experience_years"
+                  placeholder="0" min="0" max="50" step="0.5"/>
+                <span class="input-line"></span>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="field-group">
+              <label for="certifications" class="field-label">Certifications <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="number" id="certifications" name="certifications"
+                  placeholder="0" min="0" step="1"/>
+                <span class="input-line"></span>
+              </div>
+            </div>
+
+            <!-- Education Level -->
+            <div class="field-group">
+              <label for="education_level" class="field-label">Education Level <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="education_level" name="education_level">
+                  <option value="" disabled selected>Select level</option>
+                  <option value="High School">High School</option>
+                  <option value="Bachelor">Bachelor's Degree</option>
+                  <option value="Master">Master's Degree</option>
+                  <option value="PhD">PhD / Doctorate</option>
+                </select>
+                <span class="select-arrow">▾</span>
+              </div>
+            </div>
+
+            <!-- Skills Count -->
+            <div class="field-group">
+              <label for="skills_count" class="field-label">Skills Count <span class="req">*</span></label>
+              <div class="input-wrap">
+                <input type="number" id="skills_count" name="skills_count"
+                  placeholder="e.g. 8" min="0" step="1"/>
+                <span class="input-line"></span>
+              </div>
+            </div>
+
+            <!-- Industry -->
+            <div class="field-group">
+              <label for="industry" class="field-label">Industry <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="industry" name="industry">
+                  <option value="" disabled selected>Select industry</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Finance">Finance / Banking</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Education">Education</option>
+                  <option value="Retail">Retail / E-commerce</option>
+                  <option value="Manufacturing">Manufacturing</option>
+                  <option value="Consulting">Consulting</option>
+                  <option value="Media">Media / Entertainment</option>
+                  <option value="Government">Government / Public Sector</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="select-arrow">▾</span>
+              </div>
+            </div>
+
+            <!-- Company Size -->
+            <div class="field-group">
+              <label for="company_size" class="field-label">Company Size <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="company_size" name="company_size">
+                  <option value="" disabled selected>Select size</option>
+                  <option value="Startup">Startup (1–50)</option>
+                  <option value="Small">Small (51–200)</option>
+                  <option value="Medium">Medium (201–1000)</option>
+                  <option value="Large">Large (1000+)</option>
+                  <option value="Enterprise">Enterprise / MNC</option>
+                </select>
+                <span class="select-arrow">▾</span>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="field-group">
+              <label for="location" class="field-label">Location <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="location" name="location">
+                  <option value="" disabled selected>Select city</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi / NCR</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                  <option value="Remote">Remote (India)</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="select-arrow">▾</span>
+              </div>
+            </div>
+
+            <!-- Remote Work -->
+            <div class="field-group">
+              <label for="remote_work" class="field-label">Remote Work <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select id="remote_work" name="remote_work">
+                  <option value="" disabled selected>Select option</option>
+                  <option value="Yes">Yes — Fully Remote</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="No">No — On-site</option>
+                </select>
+                <span class="select-arrow">▾</span>
+              </div>
+            </div>
+
+          </div><!-- /form-grid -->
+
+          <!-- Error message -->
+          <div class="form-error" id="formError" role="alert" aria-live="polite"></div>
+
+          <!-- Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn-predict" id="predictBtn">
+              <span class="btn-label">Predict Salary</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <button type="button" class="btn-sample" id="sampleBtn">Fill Sample</button>
+            <button type="reset" class="btn-reset" id="resetBtn">Reset</button>
+          </div>
+
+        </form>
+      </div><!-- /form-card -->
+
+      <!-- RESULT CARD -->
+      <div class="result-card glass-card" id="resultCard">
+
+        <!-- Empty state -->
+        <div class="result-state" id="stateEmpty">
+          <div class="result-icon-wrap empty-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <path d="M32 20v12l7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="state-title">Awaiting Input</p>
+          <p class="state-desc">Complete your profile and click <em>Predict Salary</em> to see your estimated compensation.</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="result-state hidden" id="stateLoading">
+          <div class="result-icon-wrap loading-icon">
+            <div class="spinner">
+              <div class="spinner-ring"></div>
+              <div class="spinner-dot"></div>
+            </div>
+          </div>
+          <p class="state-title">Analyzing Profile</p>
+          <p class="state-desc">Running gradient boosting model across feature dimensions…</p>
+        </div>
+
+        <!-- Success state -->
+        <div class="result-state hidden" id="stateSuccess">
+          <div class="result-label-row">
+            <span class="result-pill">✓ Prediction Complete</span>
+          </div>
+          <p class="result-heading">Estimated Annual Salary</p>
+          <div class="salary-display">
+            <span class="salary-currency">₹</span>
+            <span class="salary-amount" id="salaryAmount">—</span>
+          </div>
+          <div class="salary-breakdown" id="salaryBreakdown"></div>
+          <p class="result-disclaimer">
+            ⓘ This is a model estimate based on trained ML data. Actual compensation may vary based on negotiation, company budget, and market conditions.
+          </p>
+        </div>
+
+        <!-- Error state -->
+        <div class="result-state hidden" id="stateError">
+          <div class="result-icon-wrap error-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+              <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M32 20v16M32 42v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="state-title">Prediction Failed</p>
+          <p class="state-desc" id="errorMessage">An unexpected error occurred.</p>
+          <button class="btn-retry" id="retryBtn">Try Again</button>
+        </div>
+
+      </div><!-- /result-card -->
+    </div><!-- /predict-layout -->
+  </section>
+
+  <!-- ─── FEATURES ─── -->
+  <section class="features-section">
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="feature-icon">⬡</span>
+        <h4>Gradient Boosting Model</h4>
+        <p>XGBoost-trained on curated compensation datasets from India's top hiring platforms.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">◈</span>
+        <h4>Multi-Factor Analysis</h4>
+        <p>9 input dimensions captured — role, experience, education, skills, industry, location, and more.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">◉</span>
+        <h4>Instant Results</h4>
+        <p>Real-time inference with sub-second response time from our Flask prediction API.</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⬣</span>
+        <h4>Privacy First</h4>
+        <p>No data stored. Your profile is sent to the model and immediately discarded post-prediction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">⬡</span>
+        <span class="logo-text">SalaryAI</span>
+      </div>
+      <p class="footer-copy">
+        Built with machine learning &amp; precision design.
+        Predictions are estimates based on trained ML data and do not constitute financial advice.
+      </p>
+      <p class="footer-fine">© 2025 SalaryAI · All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="static/script.js"></script>
+</body>
+</html>
