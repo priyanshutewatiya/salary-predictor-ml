@@ -8,7 +8,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 from catboost import CatBoostRegressor
 
-# ---------------------------------------------------
 # 1. LOAD DATA
 # ---------------------------------------------------
 df = pd.read_csv("job_salary_prediction_dataset.csv")
